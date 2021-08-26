@@ -16,9 +16,10 @@ class ProductOptions extends Migration
         Schema::create('product_options', function (Blueprint $table) {
             $table->id();
             $table->string('option_name')->nullable();
-            $table->mediumInteger('product_id');
-            $table->json('option_details');
-            $table->decimal('product_price', 10, 2);
+            $table->unsignedMediumInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->cascadeOnUpdate();
+//            $table->json('option_details');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

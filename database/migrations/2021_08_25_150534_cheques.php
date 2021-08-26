@@ -15,8 +15,7 @@ class Cheques extends Migration
     {
         Schema::create('cheques', function (Blueprint $table) {
             $table->id();
-            $table->mediumInteger('product_id');
-            $table->smallInteger('quantity');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
